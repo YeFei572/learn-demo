@@ -26,3 +26,4 @@
 *.iws
 
 /target/
+*/target/
