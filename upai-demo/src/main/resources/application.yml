@@ -1,0 +1,8 @@
+server:
+  port: 8442
+
+youpai:
+  bucket_name: keppel
+  path: /meijia
+  operator_name: xxxxxxxxx
+  operator_pwd: xxxxxxxxxxxxxxxxxx
