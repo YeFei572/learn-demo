@@ -1,0 +1,28 @@
+syntax = "proto3";
+package proto;
+
+
+//optimize_for 加快解析的速度
+option optimize_for = SPEED;
+option java_package = "com.dikar.common.protobuf";
+
+// 返回实体
+message WSBaseResProto{
+  int32 type = 1;
+  WSMessageResProto message = 2;
+  WSUserResProto user = 3;
+  string create_time = 4;
+}
+
+message WSMessageResProto{
+  uint64 receive_id = 1;
+  int32 msg_type = 2;
+  string msg_content = 3;
+}
+
+message WSUserResProto{
+  uint64 uid = 1;
+  string name = 2;
+  string avatar = 3;
+  string remark = 4;
+}
