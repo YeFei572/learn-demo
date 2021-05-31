@@ -31,7 +31,12 @@ public class WSServerHandler extends SimpleChannelInboundHandler<WSBaseReqProtoO
             case WSReqTypeConstants.LOGIN:
                 log.info("用户登陆。。。");
                 userLogin(ctx, msg.getUid(), msg.getSid());
+                break;
             case WSReqTypeConstants.PING:
+                log.info("客户端心跳。。。");
+                break;
+            default:
+                log.info("未知。。");
         }
     }
 

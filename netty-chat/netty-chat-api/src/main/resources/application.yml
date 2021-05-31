@@ -12,3 +12,10 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:mapper/*Mapper.xml
   type-aliases-package: com.dikar.entity
+
+# 跨域设置 , 这样设置了还是不能跨域传 Cookie 不知道怎么回事
+cors:
+  allowed-origins: http://localhost:9527
+  allowed-headers: Content-Type
+  cors.allowed-methods: GET,POST,OPTIONS
+  cors.allowed-credentials: true
