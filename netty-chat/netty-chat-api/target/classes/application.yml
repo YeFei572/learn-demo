@@ -17,5 +17,5 @@ mybatis-plus:
 cors:
   allowed-origins: http://localhost:9527
   allowed-headers: Content-Type
-  cors.allowed-methods: GET,POST,OPTIONS
-  cors.allowed-credentials: true
+  allowed-methods: GET,POST,OPTIONS
+  allowed-credentials: true
