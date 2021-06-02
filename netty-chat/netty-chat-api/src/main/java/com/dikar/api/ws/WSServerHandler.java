@@ -63,7 +63,7 @@ public class WSServerHandler extends SimpleChannelInboundHandler<WSBaseReqProtoO
             channel.writeAndFlush(wsBaseResProto);
         }
         // 加入在线map中
-        WSSocketHolder.put(uid, channel);
+        WSSocketHolder.put(uid, ctx.channel());
     }
 
     @Override

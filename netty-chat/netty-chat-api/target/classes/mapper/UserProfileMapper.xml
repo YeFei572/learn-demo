@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dikar.api.mapper.UserProfileMapper">
+
+    <resultMap type="com.dikar.api.entity.user.UserProfile" id="UserProfile">
+        <result property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="friendAskCount" column="friend_ask_count"/>
+        <result property="friendCount" column="friend_count"/>
+        <result property="createTime" column="create_time"/>
+        <result property="modifiedTime" column="modified_time"/>
+    </resultMap>
+
+
+</mapper>

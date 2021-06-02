@@ -74,11 +74,6 @@ public class WSServer {
                 .setMsgType(wsMessageReqVO.getMsgType())
                 .setMsgContent(wsMessageReqVO.getMsgContent())
                 .build();
-//        WSMessageResProtoOuterClass.WSMessageResProto wsMessageResProto = WSMessageResProtoOuterClass.WSMessageResProto.newBuilder()
-//                .setReceiveId(wsMessageReqVO.getReceiveId())
-//                .setMsgType(wsMessageReqVO.getMsgType())
-//                .setMsgContent(wsMessageReqVO.getMsgContent())
-//                .build();
 
         WSUserReqVO wsUserReqVO = wsBaseReqVO.getUser();
         WSBaseResProtoOuterClass.WSUserResProto wsUserResProto = WSBaseResProtoOuterClass.WSUserResProto.newBuilder()
@@ -86,12 +81,6 @@ public class WSServer {
                 .setName(wsUserReqVO.getName())
                 .setAvatar(wsUserReqVO.getAvatar())
                 .build();
-//        WSUserResProtoOuterClass.WSUserResProto wsUserResProto = WSUserResProtoOuterClass.WSUserResProto.newBuilder()
-//                .setUid(wsUserReqVO.getUid())
-//                .setName(wsUserReqVO.getName())
-//                .setAvatar(wsUserReqVO.getAvatar())
-//                .setRemark(wsUserReqVO.getRemark())
-//                .build();
 
         WSBaseResProtoOuterClass.WSBaseResProto wsBaseResProto = WSBaseResProtoOuterClass.WSBaseResProto.newBuilder()
                 .setType(wsBaseReqVO.getType())
