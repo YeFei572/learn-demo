@@ -1,5 +1,6 @@
 package com.dikar.api.entity.user;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,11 +13,12 @@ import java.util.Date;
  * @Description:
  */
 @Data
+@Builder
 public class UserFriend {
     /**
      * 自增id
      */
-    private Integer id;
+    private Long id;
     /**
      * 用户id
      */

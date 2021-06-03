@@ -11,4 +11,11 @@ import com.dikar.api.entity.user.UserFriend;
  * @Description:
  */
 public interface UserFriendService extends IService<UserFriend> {
+    /**
+     * 朋友关系查询
+     * @param uid
+     * @param friendUid
+     * @return
+     */
+    UserFriend findByUidAndFriendUid(Long uid, Long friendUid);
 }

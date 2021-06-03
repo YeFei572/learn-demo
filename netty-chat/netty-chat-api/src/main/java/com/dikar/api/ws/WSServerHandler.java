@@ -2,7 +2,7 @@ package com.dikar.api.ws;
 
 import com.dikar.api.utils.UserLoginUtils;
 import com.dikar.common.constants.WSReqTypeConstants;
-import com.dikar.common.constants.WSResTypeConstants;
+import com.dikar.common.constants.WSResTypeConstant;
 import com.dikar.common.protobuf.WSBaseReqProtoOuterClass;
 import com.dikar.common.protobuf.WSBaseResProtoOuterClass;
 import io.netty.channel.Channel;
@@ -45,7 +45,7 @@ public class WSServerHandler extends SimpleChannelInboundHandler<WSBaseReqProtoO
             log.info("非法登陆： {}， {}", uid, sid);
             // 登陆异常， 发送下线通知
             WSBaseResProtoOuterClass.WSBaseResProto wsBaseReqProto = WSBaseResProtoOuterClass.WSBaseResProto.newBuilder()
-                    .setType(WSResTypeConstants.WS_OUT)
+                    .setType(WSResTypeConstant.WS_OUT)
                     .setCreateTime(new Date().toString())
                     .build();
             ctx.channel().writeAndFlush(wsBaseReqProto);
@@ -56,7 +56,7 @@ public class WSServerHandler extends SimpleChannelInboundHandler<WSBaseReqProtoO
         // 如果不是第一次登陆，并且客户端id和当前不匹配，则通知之前的客户端下线
         if (Objects.nonNull(channel) && !Objects.equals(ctx.channel().id(), channel.id())) {
             WSBaseResProtoOuterClass.WSBaseResProto wsBaseResProto = WSBaseResProtoOuterClass.WSBaseResProto.newBuilder()
-                    .setType(WSResTypeConstants.WS_OUT)
+                    .setType(WSResTypeConstant.WS_OUT)
                     .setCreateTime(new Date().toString())
                     .build();
             // 发送下线信息

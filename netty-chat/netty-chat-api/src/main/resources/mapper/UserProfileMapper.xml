@@ -13,5 +13,37 @@
         <result property="modifiedTime" column="modified_time"/>
     </resultMap>
 
-
+    <insert id="insertUserProfileAll">
+        INSERT INTO user_profile(uid,friend_ask_count,friend_count,create_time,modified_time)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <if test="item.uid != null
+                        and item.createTime != null
+                        and item.modifiedTime != null">
+                (#{item.uid},
+                <choose>
+                    <when test="item.friendAskCount != null">
+                        #{item.friendAskCount},
+                    </when>
+                    <otherwise>
+                        0,
+                    </otherwise>
+                </choose>
+                <choose>
+                    <when test="item.friendCount != null">
+                        #{item.friendCount},
+                    </when>
+                    <otherwise>
+                        0,
+                    </otherwise>
+                </choose>
+                #{item.createTime},
+                #{item.modifiedTime})
+            </if>
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        friend_ask_count = friend_ask_count + VALUES(friend_ask_count),
+        friend_count = friend_count + VALUES(friend_count),
+        modified_time = VALUES(modified_time)
+    </insert>
 </mapper>

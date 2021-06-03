@@ -1,9 +1,6 @@
 package com.dikar.api.entity.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -11,16 +8,13 @@ import java.util.Date;
  * @BelongsProject: learn-demo
  * @BelongsPackage: com.dikar.api.entity.user
  * @Author: yefei
- * @CreateTime: 2021-06-01 16:15
+ * @CreateTime: 2021-06-03 10:42
  * @Description:
  */
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class UserProfile {
+public class UserFriendAsk {
     /**
-     * 用户的消息配置表
+     * 自增ID
      */
     private Long id;
     /**
@@ -28,13 +22,17 @@ public class UserProfile {
      */
     private Long uid;
     /**
-     * 好友请求的数量
+     * 发送消息的用户ID
      */
-    private Integer friendAskCount;
+    private Long friendUid;
     /**
-     * 好友数量
+     * 备注信息
      */
-    private Integer friendCount;
+    private String remark;
+    /**
+     * 状态（0：未确认过，1：已确认, 2: 已拒绝）
+     */
+    private Integer status;
     private Date createTime;
     private Date modifiedTime;
 }

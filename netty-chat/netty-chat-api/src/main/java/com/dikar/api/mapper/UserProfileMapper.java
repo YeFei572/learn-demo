@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.dikar.api.entity.user.UserProfile;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @BelongsProject: learn-demo
  * @BelongsPackage: com.dikar.api.mapper
@@ -13,4 +15,12 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserProfileMapper extends BaseMapper<UserProfile> {
+
+    /**
+     * 批量插入
+     *
+     * @param userProfiles
+     * @return
+     */
+    boolean insertUserProfileAll(List<UserProfile> userProfiles);
 }

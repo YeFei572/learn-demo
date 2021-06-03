@@ -24,6 +24,13 @@ public class ResultVOUtils {
                 .build();
     }
 
+    public static BaseResVO success() {
+        return BaseResVO.builder()
+                .code(0)
+                .message("Success")
+                .build();
+    }
+
     /**
      * 错误的时候返回
      *

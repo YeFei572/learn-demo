@@ -1,6 +1,7 @@
 package com.dikar.api.service.user.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dikar.api.entity.user.User;
 import com.dikar.api.mapper.UserMapper;
@@ -24,7 +25,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Map<Long, UserInfoListResVO> listByUidIn(List<Long> uids) {
-        List<User> users = baseMapper.selectBatchIds(uids);
+        List<User> users = baseMapper.selectList(Wrappers.<User>lambdaQuery().in(User::getUid, uids));
         Map<Long, UserInfoListResVO> res = new HashMap<>(users.size());
         users.forEach(item -> {
             UserInfoListResVO userInfoListResVO = new UserInfoListResVO();

@@ -10,7 +10,7 @@ import lombok.Getter;
  * @Description:
  */
 @Getter
-public class WSResTypeConstants {
+public class WSResTypeConstant {
     public static final int LOGIN_OUT = -2;
     public static final int WS_OUT = -1;
     public static final int PING = 0;
