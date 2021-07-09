@@ -39,7 +39,7 @@ public class UserLoginController {
             return ResultVOUtils.error(ResultEnum.PARAM_VERIFY_FALL, "游客性别未选择");
         }
         String name = "火星人" + RandomUtil.randomString(7);
-        String avatar = StrUtil.format("http://prbsvykmy.bkt.clouddn.com/static/image/user-{}-default.png", type);
+        String avatar = type == 1 ? "https://files.catbox.moe/a69dne.jpg" : "https://files.catbox.moe/ybddsq.jpg";
         String remark = "你今生有没有坚定不移地相信过一件事或一个人？是那种至死不渝的相信？";
         // 创建用户
         User user = new User();

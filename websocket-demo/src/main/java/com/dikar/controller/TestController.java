@@ -29,4 +29,14 @@ public class TestController {
         simpMessagingTemplate.convertAndSendToUser("1", "/remind", new Random().nextInt(30) + msg);
         return Boolean.TRUE;
     }
+
+    @GetMapping(value = "/test")
+    public void test(@RequestParam String msg) {
+        simpMessagingTemplate.convertAndSendToUser("1", "/remind", new Random().nextInt(100) + msg);
+    }
+
+    @GetMapping(value = "/push")
+    public void pushMsg(@RequestParam String msg) {
+        simpMessagingTemplate.convertAndSend("/notice/*/remind", "推送内容");
+    }
 }

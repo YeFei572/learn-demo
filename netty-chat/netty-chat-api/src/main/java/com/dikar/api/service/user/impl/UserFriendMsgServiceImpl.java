@@ -7,6 +7,8 @@ import com.dikar.api.service.user.UserFriendMsgService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @BelongsProject: learn-demo
  * @BelongsPackage: com.dikar.api.service.user.impl
@@ -17,6 +19,5 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class UserFriendMsgServiceImpl extends ServiceImpl<UserFriendMsgMapper, UserFriendMsg> implements UserFriendMsgService {
-
 
 }

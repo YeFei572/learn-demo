@@ -24,6 +24,7 @@ public class UserFriendListInfoResVO {
     /**
      * 朋友的ID
      */
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long friendUid;
     /**
      * 备注

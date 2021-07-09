@@ -16,62 +16,64 @@
     <script type="text/javascript">
         var stompClient = null;
 
-        function setConnected(connected){
+        function setConnected(connected) {
             document.getElementById('connect').disabled = connected;
             document.getElementById('disconnect').disabled = !connected;
-            document.getElementById('conversationDIV').style.visibility = connected ? 'visible':'hidden';
+            document.getElementById('conversationDIV').style.visibility = connected ? 'visible' : 'hidden';
             $('#response').html();
         }
 
-        function connect(){
+        function connect() {
             //链接Socket的endpoint名称为endpointWisely
             var socket = new SockJS('/ws');
             //使用STOMP子协议的WebSocket客户端
             stompClient = Stomp.over(socket);
+            debugger;
             //链接WebSocket服务端
-            stompClient.connect({},function (frame) {
+            stompClient.connect({"Authorization": "xxx"}, function (frame) {
                 setConnected(true);
-                console.log('Connected:' + frame);
+                console.log('Connected---------:' + frame);
                 //通过stompClient.subscribe订阅/topic/getResponse目标发送的消息，即控制器中的@SendTo
-                stompClient.subscribe('/notice/1/remind',function (response) {
+                stompClient.subscribe('/notice/1/remind', function (response) {
                     console.log('00000000000000000000000', response)
                     showResponse(response.body);
                 });
             });
         }
 
-        function disconnect(){
-            if(stompClient != null){
+        function disconnect() {
+            if (stompClient != null) {
                 stompClient.disconnect();
             }
             setConnected(false);
             console.log("Disconnecteed");
         }
 
-        function sendName(){
+        function sendName() {
             var name = $('#name').val();
-            stompClient.send("/sendMsg",{},name);
+            stompClient.send("/sendMsg", {}, name);
         }
 
-        function showResponse(message){
+        function showResponse(message) {
             console.log('----------------------------', message)
             $('#response').append($('#response').val() + message + '<br/>');
         }
     </script>
 </head>
-<body onload="disconnect()">
-    <div class="container">
-        <div >
-            <button id="connect" onclick="connect();" class="btn btn-success">连接</button>
-            <button id="disconnect" disabled="disabled" onclick="disconnect();" class="btn btn-danger">断开连接</button>
-        </div>
 
-        <div id="conversationDIV">
-            <label>输入你的名字</label>
-            <input type="text" id="name" class="text-input"/>
-            <button id="sendName" onclick="sendName();" class="btn btn-primary">发送</button>
-            <p id="response"></p>
-        </div>
+<body onload="disconnect()">
+<!--<div class="container">-->
+    <div>
+        <button id="connect" onclick="connect();" class="btn btn-success">连接</button>
+        <button id="disconnect" disabled="disabled" onclick="disconnect();" class="btn btn-danger">断开连接</button>
     </div>
+
+    <div id="conversationDIV">
+        <label>输入你的名字</label>
+        <input type="text" id="name" class="text-input"/>
+        <button id="sendName" onclick="sendName();" class="btn btn-primary">发送</button>
+        <p id="response"></p>
+    </div>
+</div>
 </body>
 </html>

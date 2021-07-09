@@ -8,6 +8,8 @@ import com.dikar.api.service.user.UserFriendService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @BelongsProject: learn-demo
  * @BelongsPackage: com.dikar.api.service.user.impl
@@ -25,5 +27,10 @@ public class UserFriendServiceImpl extends ServiceImpl<UserFriendMapper, UserFri
         return baseMapper.selectOne(Wrappers.<UserFriend>lambdaQuery()
                 .eq(UserFriend::getUid, uid)
                 .eq(UserFriend::getFriendUid, friendUid));
+    }
+
+    @Override
+    public void insertUserFriendAll(List<UserFriend> userFriends) {
+        baseMapper.insertUserFriendAll(userFriends);
     }
 }

@@ -3,6 +3,8 @@ package com.dikar.api.service.user;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.dikar.api.entity.user.UserFriend;
 
+import java.util.List;
+
 /**
  * @BelongsProject: learn-demo
  * @BelongsPackage: com.dikar.api.service.user
@@ -18,4 +20,6 @@ public interface UserFriendService extends IService<UserFriend> {
      * @return
      */
     UserFriend findByUidAndFriendUid(Long uid, Long friendUid);
+
+    void insertUserFriendAll(List<UserFriend> userFriends);
 }

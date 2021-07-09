@@ -1,5 +1,7 @@
 package com.dikar.api.vo.req;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 /**
@@ -14,6 +16,7 @@ public class WSMessageReqVO {
     /**
      * 接收者ID
      */
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long receiveId;
 
     /**
