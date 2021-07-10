@@ -30,4 +30,16 @@ public interface RabbitConstants {
      * 延时路由(瞬时插件)
      */
     String DELAY_IMMEDIATE_ROUTING_KEY = "com.dikar.delay.immediate.routingKey";
+
+    /**
+     * 广播模式交换
+     */
+    String FANOUT_EXCHANGE = "com.dikar.fanoutExchange";
+
+    /**
+     * 广播模式队列A,B,C
+     */
+    String FANOUT_QUEUE_A = "com.dikar.fanoutQueue.A";
+    String FANOUT_QUEUE_B = "com.dikar.fanoutQueue.B";
+    String FANOUT_QUEUE_C = "com.dikar.fanoutQueue.C";
 }
